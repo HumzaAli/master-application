@@ -20,7 +20,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Context context;
 
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,29 +28,32 @@ public class MainActivity extends Activity implements View.OnClickListener {
         init();
 
     }
-    private void init(){
-        context=MainActivity.this;
-        btnNotification= (Button) findViewById(R.id.tv_1);
-        intent=new Intent(context,MainActivity.class);
-        pendingIntent=PendingIntent.getActivity(context,0,intent,0);
+
+    private void init() {
+        context = MainActivity.this;
+        btnNotification = (Button) findViewById(R.id.tv_1);
+        intent = new Intent(context, MainActivity.class);
+        pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         btnNotification.setOnClickListener(this);
-        notificationManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notification=new NotificationCompat.Builder(this).setSmallIcon(android.R.drawable.stat_notify_more)
-        .setContentTitle("Title").setContentText("description").setContentIntent(pendingIntent);
+        notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notification = new NotificationCompat.Builder(this).setSmallIcon(android.R.drawable.stat_notify_more)
+                .setContentTitle("Title").setContentText("description").setContentIntent(pendingIntent);
 
     }
 
     @Override
 
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.tv_1:
                 sendNotification();
                 break;
         }
 
     }
-    private void sendNotification(){
-        notificationManager.notify(0,notification.build());
+
+    private void sendNotification() {
+        notificationManager.notify(0, notification.build());
     }
+
 }
