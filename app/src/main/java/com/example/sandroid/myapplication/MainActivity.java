@@ -18,8 +18,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     NotificationManager notificationManager;
     NotificationCompat.Builder notification;
     Context context;
-    /// this is a confirm text
-    /// this is a confirm text
 
 
     @Override
@@ -27,11 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-
-    }
-
-    private void init() {
+//        init();
         context = MainActivity.this;
         btnNotification = (Button) findViewById(R.id.tv_1);
         intent = new Intent(context, MainActivity.class);
@@ -40,6 +34,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notification = new NotificationCompat.Builder(this).setSmallIcon(android.R.drawable.stat_notify_more)
                 .setContentTitle("Title").setContentText("description").setContentIntent(pendingIntent);
+
+    }
+
+    private void init() {
 
     }
 
