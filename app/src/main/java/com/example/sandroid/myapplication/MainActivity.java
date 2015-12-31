@@ -18,6 +18,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     NotificationManager notificationManager;
     NotificationCompat.Builder notification;
     Context context;
+
+
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
