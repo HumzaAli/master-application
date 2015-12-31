@@ -18,6 +18,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     NotificationManager notificationManager;
     NotificationCompat.Builder notification;
     Context context;
+    /// this is a confirm text
 
 
     
