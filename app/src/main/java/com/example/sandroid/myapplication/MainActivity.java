@@ -19,6 +19,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     NotificationCompat.Builder notification;
     Context context;
     /// this is a confirm text
+    /// this is a confirm text
 
 
     @Override
