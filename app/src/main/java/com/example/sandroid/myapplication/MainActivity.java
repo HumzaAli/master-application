@@ -5,10 +5,22 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -18,6 +30,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
     NotificationManager notificationManager;
     NotificationCompat.Builder notification;
     Context context;
+    //camera sample
+    private Camera mCamera;
+    private CameraPreview mPreview;
+    private Camera.PictureCallback mPicture;
+    private Button capture, switchCamera;
+    private Context myContext;
+    private LinearLayout cameraPreview;
+    private boolean cameraFront = false;
+
+
 
 
     @Override
@@ -26,6 +48,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        init();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+//        initialize();
+        mPreview.refreshCamera(mCamera);
         context = MainActivity.this;
         btnNotification = (Button) findViewById(R.id.tv_1);
         intent = new Intent(context, MainActivity.class);
@@ -40,6 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void init() {
 
     }
+
 
     @Override
 
